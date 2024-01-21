@@ -1,0 +1,9 @@
+.m-tasklistFooter {
+    &__content {
+        flex-basis: 85%;
+    }
+    &__about {
+        flex-basis: 15%;
+        text-align: right;
+    }
+}

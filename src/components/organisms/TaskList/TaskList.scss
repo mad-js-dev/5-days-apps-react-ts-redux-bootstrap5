@@ -1,0 +1,29 @@
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.o-tasklist {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .m-tasklistHeader {
+        height: 20%;
+        @include media-breakpoint-up(sm) {
+            height: 10%;
+        }
+    }
+
+    &__content {
+        height: 80%;
+        @include media-breakpoint-up(sm) {
+            height: 90%;
+        }
+    }
+
+    &__listWrapper {
+        height: 90%;
+        overflow-y: scroll;
+    }
+}

@@ -1,0 +1,83 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.m-tasklistItem {
+    align-items: flex-start!important;
+
+    &__content {
+        //flex-basis: 75%;
+        flex-grow: 1;
+        .form-control {
+            resize: none;
+            overflow: hidden;
+            @include media-breakpoint-up(sm) {
+                //height: 64px;
+            }
+        }
+    }
+
+    &__actionBtn {
+        svg {
+            margin-bottom: 3px;
+        }
+        span {
+            display: none;
+            margin-left: 8px;
+        }
+        @include media-breakpoint-up(md) {
+            span {
+                display: inline;
+            }
+        }
+
+    }
+
+    &--editMode {
+        .m-tasklistItem__actionBtn:first-child {
+            pointer-events: none;
+            opacity: 0;
+            transition: all 0.3;
+        }
+    }
+    
+}
+
+/* 
+    We style against edit mode(:not) for default mode,
+    this way we can ensure bootstrap's default form styles for edit mode
+    while keeping NIL CLS on editMode state change
+*/
+
+//Styles for out of edit mode
+.m-tasklistItem:not(.m-tasklistItem--editMode) {
+    .m-tasklistItem__contentWrapper {
+        cursor: pointer;
+        
+        .form-control {
+            border: 0;
+            background-color: transparent;
+            pointer-events: none;    
+        }
+    }
+}
+
+//Styles for edit mode
+.m-tasklistItem.m-tasklistItem--editMode {
+    .m-tasklistItem__editBtn {
+        display: none;
+    }
+}
+
+//Styles for complete task (out of edit mode)
+.m-tasklistItem--isComplete {
+    &:not(.m-tasklistItem--editMode) {
+        .m-tasklistItem__contentWrapper {
+            .form-control {
+                text-decoration: line-through;
+            }
+        }
+    }
+    
+}
+

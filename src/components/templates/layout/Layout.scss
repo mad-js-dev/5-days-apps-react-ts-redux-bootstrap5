@@ -1,0 +1,24 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.l-main {
+    &__header {
+        margin-bottom: -24vh;
+        background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    &__headerWrapper {
+        height:  40vh;
+        padding-top: 8vh;
+    }
+
+    &__content {
+        max-height: 80vh;
+        .row, .col {
+            max-height: 80vh;
+        }
+    }
+}
